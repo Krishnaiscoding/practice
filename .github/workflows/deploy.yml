@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-job:
+jobs:
     build:
         runs-on: ubuntu-latest
         steps:
           - name: Checkout Code
-            uses: actions/checkou@v4
-          - name: Buld Docker Image
+            uses: actions/checkout@v4
+          - name: Build Docker Image
             run: docker build -t website .
           - name: Run Docker Container
             run: docker run -d -p 8080:80 website
